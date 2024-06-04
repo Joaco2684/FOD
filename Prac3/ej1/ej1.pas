@@ -15,19 +15,19 @@ var
     ult,act:empleado;
 begin
     reset(arch);
-    seek(arch, FileSize(arch)-1);
+    Seek(arch, FileSize(arch)-1);
     readln(arch,ult);
-    seek(arch, 0);
-    readln(arch, act);
-    while ((not eof(arch)) and (act.nro <> num)) do
+    Seek(arch,0);
+    readln(arch,act);
+    while not eof(arch) and (act.num <> num) do 
         readln(arch,act);
-    if (act.nro = num) then
-        begin
-            seek(arch, FilePos(arch)-1); //Pos donde encontró el empleado a eliminar
-            writeln(arch, ult);
-            seek(arch, FileSize(arch)-1);
-            truncate(arch);
-        end;
+    if (act.num = num) then begin
+        Seek(arch, FilePos(arch)-1);
+        writeln(arch,act);
+        Seek(arch, FileSize(arch)-1);
+        truncate(arch);
+    end;
+    
 end;
 
 var

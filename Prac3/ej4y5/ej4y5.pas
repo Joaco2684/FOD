@@ -1,5 +1,5 @@
- program Prac3Ej4y5;
- type
+program Prac3Ej4y5;
+type
     reg_flor = record
         nombre:String[45];
         codigo:integer;
